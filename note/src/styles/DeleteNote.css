@@ -1,0 +1,38 @@
+.deleteDialog {
+  width: 400px;
+  max-width: 90%;
+  min-width: 300px;
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.MuiDialogTitle-root {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  padding: 16px;
+}
+
+.MuiDialogContent-root,
+.MuiDialogActions-root {
+  padding: 20px;
+}
+
+.MuiDialogActions-root {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .deleteDialog {
+    width: 100%;
+  }
+
+  .MuiDialogTitle-root {
+    font-size: 1em;
+  }
+}

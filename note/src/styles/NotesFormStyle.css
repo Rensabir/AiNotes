@@ -1,0 +1,72 @@
+/* Root dialog styles */
+.root .MuiDialog-paper {
+  border-radius: 4px;
+  box-shadow: 0 3px 6px #00000029;
+}
+
+.root .MuiDialog-paperWidthSm {
+  max-width: 600px; /* Adjust manually since theme.wrapper.maxWidth is unknown */
+  width: 90%; /* Adjust manually since theme.wrapper.width is unknown */
+  margin: 15px;
+}
+
+.root .MuiDialogTitle-root {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #00000099;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Input field styles */
+.input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.2em 1em;
+  font-size: 1.25em;
+  color: #00000099;
+  background: #f4f4f4;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 1.5em;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+}
+
+/* Placeholder opacity */
+.input::placeholder {
+  opacity: 0.9;
+}
+
+/* Remove focus outline and maintain background color */
+.input:focus,
+.MuiSelect-select:focus {
+  outline: none;
+  background: #f4f4f4;
+}
+
+/* Hide input underline */
+.input:before,
+.input:after {
+  display: none;
+}
+
+/* Textarea styles */
+.textarea {
+  resize: none;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  margin-bottom: 0;
+  font-size: 1.25em;
+  font-family: inherit;
+}
+
+/* Form action buttons */
+.formActionButtons {
+  text-align: right;
+}
+
+.formActionButtons button {
+  margin: 1em 0.5em 0;
+  padding: 1em;
+}

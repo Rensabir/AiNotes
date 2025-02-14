@@ -1,0 +1,39 @@
+/* Container for the entire notes list */
+.notesListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Provides spacing between notes */
+  justify-content: center; /* Centers items horizontally */
+  padding: 16px;
+}
+
+/* Style for individual note containers */
+.noteItem {
+  flex: 1 1 calc(33.33% - 16px); /* Allows 3 items per row with spacing */
+  max-width: 400px; /* Limits the maximum width */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Styling for when there are no notes */
+.noNotes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  text-align: center;
+  color: #aaa;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .noteItem {
+    flex: 1 1 calc(50% - 16px); /* 2 items per row on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .noteItem {
+    flex: 1 1 100%; /* 1 item per row on small screens */
+  }
+}

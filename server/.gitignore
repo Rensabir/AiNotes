@@ -1,0 +1,25 @@
+# Node.js Modules
+node_modules/
+
+# Environment Variables
+.env
+
+# Debugging and Log Files
+*.log
+*.swp
+*.tmp
+tmp/
+temp/
+
+# SQLite Database
+notes.db
+
+# IDE and Editor Specific Files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# System Files
+.DS_Store
+Thumbs.db

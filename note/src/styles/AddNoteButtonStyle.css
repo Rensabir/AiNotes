@@ -1,0 +1,19 @@
+.addNoteButton {
+  min-width: 89px; /* Consistent button width */
+  font-weight: 400;
+  text-transform: none;
+}
+
+.addNoteButtonWrapper {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .addNoteButton {
+    width: 45%;
+    margin-bottom: 1.5em;
+    padding: 12px 8px;
+  }
+}
