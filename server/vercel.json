@@ -6,6 +6,12 @@
       "use": "@vercel/node"
     }
   ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/server.js"
+    }
+  ],
   "env": {
     "DATABASE_PATH": "./notes.db"
   }
