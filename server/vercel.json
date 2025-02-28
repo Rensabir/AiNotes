@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/notes.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "env": {
+    "DATABASE_PATH": "./notes.db"
+  }
+}
