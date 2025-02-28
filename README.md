@@ -57,12 +57,10 @@ Before you begin, ensure you have the following installed:
 1.  **Clone the Repository:**
 
     ```bash
-    git clone <repository_url>
-    cd <project_directory>
+    git clone <github.com/Rensabir/AiNotes>
+    cd AiNotes/note
     ```
-
-    Replace `<repository_url>` with the URL of your Git repository and `<project_directory>` with the name of the directory where the repository is cloned.
-
+    
 2.  **Install Dependencies:**
 
     - **Frontend:**
@@ -152,14 +150,7 @@ The application uses the Hugging Face Inference API to provide the following AI-
 
 **Note:** The performance of these features depends on the quality of the Hugging Face Inference API and the specific models being used.
 
-## Contributing
 
-Contributions are welcome! Please follow these steps:
-
-1.  Fork the repository.
-2.  Create a new branch for your feature or bug fix.
-3.  Make your changes and commit them with descriptive commit messages.
-4.  Submit a pull request.
 
 ![Smart Notes Organizer Screenshot](assets/Screenshot1.png)
 ![Smart Notes Organizer Screenshot](assets/Screenshot2.png)
