@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const API_URL = "http://localhost:5000/notes";
+const API_URL = "https://ai-notes-7e3b.vercel.app/notes";
 
 export const getNotes = createAsyncThunk("notes/getNotes", async () => {
   const response = await fetch(API_URL);

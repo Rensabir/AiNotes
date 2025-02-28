@@ -1,14 +1,15 @@
+// server.js
 const express = require("express");
 const cors = require("cors");
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
 const app = express();
-const port = 5000;
+const port = 5000; // Or any port you prefer
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // Enable CORS for cross-origin requests
+app.use(express.json()); // Parse JSON request bodies - IMPORTANT: Place BEFORE route handlers
 
 // Database Setup
 const dbPath = path.resolve(__dirname, "notes.db");
@@ -32,15 +33,15 @@ function initializeDatabase() {
   return new Promise((resolve, reject) => {
     db.run(
       `
-      CREATE TABLE IF NOT EXISTS notes (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        title TEXT NOT NULL,
-        description TEXT NOT NULL,
-        category TEXT NOT NULL,
-        date INTEGER NOT NULL,
-        completed INTEGER NOT NULL DEFAULT 0
-      )
-      `,
+            CREATE TABLE IF NOT EXISTS notes (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                description TEXT NOT NULL,
+                category TEXT NOT NULL,
+                date INTEGER NOT NULL,
+                completed INTEGER NOT NULL DEFAULT 0
+            )
+        `,
       (err) => {
         if (err) {
           console.error("Table creation error:", err.message);
@@ -86,6 +87,8 @@ app.get("/notes", async (req, res) => {
 });
 
 app.post("/notes", async (req, res) => {
+  console.log("POST /notes route called"); // Add this line
+  console.log("Request body:", req.body); // Inspect the request body
   try {
     const { title, description, category } = req.body;
     const date = new Date().getTime();
@@ -107,6 +110,7 @@ app.post("/notes", async (req, res) => {
             date,
             completed: false,
           };
+          console.log("New note created:", newNote);
           res.status(201).json(newNote);
         }
       }
@@ -118,6 +122,8 @@ app.post("/notes", async (req, res) => {
 });
 
 app.put("/notes/:id", async (req, res) => {
+  console.log("PUT /notes/:id route called"); // Add this line
+  console.log("Request body:", req.body); // Inspect the request body
   try {
     const { id } = req.params;
     const { title, description, category } = req.body;
@@ -139,6 +145,7 @@ app.put("/notes/:id", async (req, res) => {
             category,
             date,
           };
+          console.log("Note updated:", updatedNote);
           res.json(updatedNote);
         }
       }
@@ -150,6 +157,7 @@ app.put("/notes/:id", async (req, res) => {
 });
 
 app.delete("/notes/:id", async (req, res) => {
+  console.log("DELETE /notes/:id route called"); // Add this line
   try {
     const { id } = req.params;
     const database = await getDb();
@@ -159,6 +167,7 @@ app.delete("/notes/:id", async (req, res) => {
         console.error("Error deleting note:", err.message);
         res.status(500).json({ error: err.message });
       } else {
+        console.log("Note deleted:", id);
         res.json({ id: parseInt(id) });
       }
     });
@@ -168,4 +177,7 @@ app.delete("/notes/:id", async (req, res) => {
   }
 });
 
-module.exports = app;
+// Start the server
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
